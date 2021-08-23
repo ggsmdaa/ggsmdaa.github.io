@@ -61,6 +61,7 @@
     <div id="main">
         <textarea name="" id="from" cols="30" rows="30"></textarea>
         <div id="convertList">
+			<input type="button" onclick="go14()" value="提取url链接">
             <input type="button" onclick="go1()" value="每行用“,”隔开">
             <input type="button" onclick="go2()" value="空格->“,”隔开">
             <input type="button" onclick="go3()" value="段(tab) 变为“,”隔开">
@@ -307,5 +308,23 @@
         }
         document.getElementById("to").value=to2;
     }
+	function go14(){
+		var from=document.getElementById("from").value;
+        var reg= /(https?|http|ftp|file):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]/g;
+        //var reg= /^((ht|f)tps?):\/\/[\w\-]+(\.[\w\-]+)+([\w\-\.,@?^=%&:\/~\+#]*[\w\-\@?^=%&\/~\+#])?$/;
+        //v = v.replace(reg, "<a href='$1$2'>$1$2</a>"); //这里的reg就是上面的正则表达式
+        //s = s.replace(reg, "$1$2"); //这里的reg就是上面的正则表达式
+		var result = from.match(reg);
+		var to="";
+		for (var i=0;i<result.length;i++){
+            if(i==0){
+                to+=result[i];
+            }
+            else{
+                to+="\n"+result[i];
+            }
+        }
+        document.getElementById("to").value=to;
+	}
 </script>
 </html>
