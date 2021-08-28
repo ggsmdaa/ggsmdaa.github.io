@@ -61,6 +61,7 @@
     <div id="main">
         <textarea name="" id="from" cols="30" rows="30"></textarea>
         <div id="convertList">
+		<input type="button" onclick="go15()" value="字母转大写">
 			<input type="button" onclick="go14()" value="提取url链接">
             <input type="button" onclick="go1()" value="每行用“,”隔开">
             <input type="button" onclick="go2()" value="空格->“,”隔开">
@@ -325,6 +326,11 @@
             }
         }
         document.getElementById("to").value=to;
+	}
+	function go15(){
+		var from=document.getElementById("from").value;
+       
+        document.getElementById("to").value=from.toUpperCase();
 	}
 </script>
 </html>
