@@ -334,10 +334,10 @@
         document.getElementById("to").value=from.toUpperCase();
 	}
 	function go16(){
-	let text = document.getElementById("from").innerHTML;
+	let text = document.getElementById("from").value;
 	let pattern = /https?:\/\/[^\s]+/gi; // 正则表达式用于匹配链接
 	text = text.replace(pattern, "<a href='$&' target='_blank'>$&</a>"); // 使用replace函数将链接替换成带有<a>标签的链接
-	document.getElementById("to").innerHTML = text;
+	document.getElementById("to").value = text;
 
 	}
 </script>
