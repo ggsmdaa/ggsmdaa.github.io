@@ -75,6 +75,7 @@
 			<input type="button" onclick="go11()" value="每行加单引号并用逗号隔开'A','B'">
 			<input type="button" onclick="go12()" value="每行->['A'],['B']">
 			<input type="button" onclick="go13()" value="每行每tab->[['A','B'],['N']">
+		<input type="button" onclick="go16()" value="识别链接并添加<a>标签">
 			
 
 
@@ -331,6 +332,13 @@
 		var from=document.getElementById("from").value;
        
         document.getElementById("to").value=from.toUpperCase();
+	}
+	function go16(){
+	let text = document.getElementById("from").innerHTML;
+	let pattern = /https?:\/\/[^\s]+/gi; // 正则表达式用于匹配链接
+	text = text.replace(pattern, "<a href='$&' target='_blank'>$&</a>"); // 使用replace函数将链接替换成带有<a>标签的链接
+	document.getElementById("to").innerHTML = text;
+
 	}
 </script>
 </html>
